@@ -17,6 +17,7 @@ class Server:
 
     def __init__(self):
         self.__dataset = None
+        #__dataset is a private attribute and can only be accessed within the class
 
     def dataset(self) -> List[List]:
         """Cached dataset
@@ -25,7 +26,9 @@ class Server:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
                 dataset = [row for row in reader]
+                #dataset is a list of lists 
             self.__dataset = dataset[1:]
+            #dataset[1:] is a list of lists with the first list being the header
 
         return self.__dataset
 
@@ -39,4 +42,5 @@ class Server:
         else:
             start, end = index_range(page, page_size)
             return self.dataset()[start:end]
+        #self.dataset() is a list of lists and we are returning a slice of it from start to end index
         
