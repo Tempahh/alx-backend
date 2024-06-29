@@ -10,9 +10,9 @@ class BasicCache(BaseCaching):
     MAX_ITEMS = 4
 
     def __init__(self):
-        """ Initiliaze
+        """ Initiliaze BasicCache
         """
-        self.cache_data = {}
+        super().__init__()
 
     def put(self, key, item):
         """ Override put method and assign item value to the key in cache_data
