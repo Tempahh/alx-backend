@@ -28,10 +28,6 @@ class BasicCache(BaseCaching):
         """
         if key is None or item is None:
             return
-        if len(self.cache_data) >= self.MAX_ITEMS:
-            first_key, first_item = next(iter(self.cache_data.items()))
-            print(f"DISCARD: {first_key} ")
-            del self.cache_data[first_key]
         self.cache_data[key] = item
         
 
