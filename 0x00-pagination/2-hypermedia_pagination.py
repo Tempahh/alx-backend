@@ -85,7 +85,7 @@ class Server:
             else len(page_data),
             "page": page,
             "data": page_data,
-            "next_page": page + 1 if page >= 0 
+            "next_page": page + 1 if page >= 0
             and page <= len(page_data) else None,
             "prev_page": page - 1 if page >= 1
             and page - 1 != 0 else None,
