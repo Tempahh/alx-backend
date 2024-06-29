@@ -58,7 +58,8 @@ class Server:
         dataset = self.dataset()  # Get the dataset
 
         # Validate page
-        assert (isinstance(page, int) and page > 0) and (isinstance(page_size, int) and page_size > 0)
+        assert ((isinstance(page, int) and page > 0) 
+        and (isinstance(page_size, int) and page_size > 0))
 
         try:
             # Get the start and end indexes
