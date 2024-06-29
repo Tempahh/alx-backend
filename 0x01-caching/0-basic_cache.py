@@ -9,14 +9,12 @@ return value linked to key.
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class BasicCache(BaseCaching):
-
-
     """ BaseCaching defines:
       - constants of your caching system
       - where your data are stored (in a dictionary)
     """
-    MAX_ITEMS = 4
 
     def __init__(self):
         """ Initiliaze BasicCache
