@@ -5,10 +5,10 @@ Test
 import sys
 
 try:
-    BasicCache = __import__('0-basic_cache').BasicCache
-    if BasicCache is not None:
-        print("OK")
+    imported_file = __import__('2-lifo_cache')
+    if imported_file.__doc__ is None or len(imported_file.__doc__) < 10:
+        print("No documentation found")
     else:
-        print("0-basic_cache.py doesn't contain BasicCache")
+        print("OK")
 except:
     print(sys.exc_info()[1])

@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
+""" LIFO cache module that inherits from BaseCaching and is a caching system
+Must use self.cache_data - dictionary from the parent class BaseCaching
+LIFO algorithm must be used to manage the cache
+"""
+
 BaseCaching = __import__('base_caching').BaseCaching
+
 
 class LIFOCache(BaseCaching):
     """ LIFO cache system that inherits from BaseCaching
