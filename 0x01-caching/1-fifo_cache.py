@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 
+""" FIFO cache module that inherits from BasicCache and is a caching system
+Must use self.cache_data - dictionary from the parent class BaseCaching
+FIFO algorithm must be used to manage the cache
+"""
 
 BaseCaching = __import__('base_caching').BaseCaching
+
 
 class FIFOCache(BaseCaching):
     """ FIFO cache system that inherits from BaseCaching
     """
+
     def __init__(self):
         """ Initialize FIFO cache system
         """
