@@ -1,11 +1,20 @@
 #!/usr/bin/python3
+
+""" LRU cache module that inherits from BaseCaching and is a caching system
+Must use self.cache_data - dictionary from the parent class BaseCaching
+LRU algorithm must be used to manage the cache
+"""
+
 from collections import OrderedDict
 
 BaseCaching = __import__('base_caching').BaseCaching
 
+
 class LRUCache(BaseCaching):
-    """ LRU cache system that inherits from BaseCaching
+    """ LRUCache class that inherits from BaseCaching
+    Uses LRU algorithm to manage cache.
     """
+
     def __init__(self):
         """ Initialize LRU cache system
         """
@@ -13,9 +22,13 @@ class LRUCache(BaseCaching):
         self.cache_keys = OrderedDict()
 
     def put(self, key, item):
-        """ Add key/value pair to cache data
-        If number of items in cache data is higher than
-        BaseCaching.MAX_ITEMS, discard the oldest item
+        """ Assign to the dictionary self.cache_data the
+        item value for the key
+        If key or item is None, do nothing.
+        When number of items in self.cache_data is higher
+        than BaseCaching.MAX_ITEMS:
+            - discard the least recently used item in self.cache_keys
+            - discard the least recently used item in self.cache_data
         """
         if key is None or item is None:
             return
