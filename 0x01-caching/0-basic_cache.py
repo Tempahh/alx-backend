@@ -10,6 +10,7 @@ return value linked to key.
 BaseCaching = __import__('base_caching').BaseCaching
 
 class BasicCache(BaseCaching):
+    
     """ BaseCaching defines:
       - constants of your caching system
       - where your data are stored (in a dictionary)
@@ -29,7 +30,6 @@ class BasicCache(BaseCaching):
         if key is None or item is None:
             return
         self.cache_data[key] = item
-        
 
     def get(self, key):
         """ Override get method and return value linked to key in cache_data
