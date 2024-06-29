@@ -58,7 +58,7 @@ class Server:
         dataset = self.dataset()  # Get the dataset
 
         # Validate page and page_size
-        assert ((isinstance(page, int) and page > 0) 
+        assert ((isinstance(page, int) and page > 0)
                 and (isinstance(page_size, int) and page_size > 0))
 
         try:
@@ -85,10 +85,10 @@ class Server:
             else len(page_data),
             "page": page,
             "data": page_data,
-            "next_page": page + 1 if page >= 0 
-                                    and page <= len(page_data) else None,
-            "prev_page": page - 1 if page >= 1 
-                                    and page -1 != 0 else None,
+            "next_page": page + 1 if page >= 0
+                                and page <= len(page_data) else None,
+            "prev_page": page - 1 if page >= 1
+                                and page - 1 != 0 else None,
             "total_pages": total_pages
         }
         return hyper_dict
