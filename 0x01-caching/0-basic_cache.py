@@ -1,5 +1,12 @@
 #!/usr/bin/python3
 
+""" BasicCache module that inherits from BaseCaching and is a caching system
+Put method should be overrided and implement logic to assign
+key and value in cache dictionary.
+Get method should be overrided and implement logic to
+return value linked to key.
+"""
+
 BaseCaching = __import__('base_caching').BaseCaching
 
 class BasicCache(BaseCaching):
