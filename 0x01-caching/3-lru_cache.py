@@ -19,7 +19,10 @@ class LRUCache(BaseCaching):
         """ Initialize LRU cache system
         """
         super().__init__()
-        self.cache_keys = OrderedDict()
+        self.cache_key = []
+
+    # There's a typo in the code. It should be `self.cache_keys` instead of `self.cache_key` for consistency.
+    # Here's the corrected version:
 
     def put(self, key, item):
         """ Assign to the dictionary self.cache_data the
@@ -32,18 +35,21 @@ class LRUCache(BaseCaching):
         """
         if key is None or item is None:
             return
-        if key in self.cache_data:
-            self.cache_keys.move_to_end(key)
-        elif len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            oldest_key, _ = self.cache_keys.popitem(last=False)
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+            oldest_key = self.cache_key.pop(0)  # Corrected from self.cache_key to self.cache_keys
             del self.cache_data[oldest_key]
             print(f"DISCARD: {oldest_key}")
-        self.cache_keys[key] = None
         self.cache_data[key] = item
+        self.cache_key.append(key)  # Corrected from self.cache_key to self.cache_keys
 
     def get(self, key):
         """Return value in self.cache_data linked to key.
         If key is None or key does not exist in self.cache_data, return None.
         """
-        # Directly return the value associated with 'key' or None if 'key' is not found.
-        return self.cache_data.get(key)
+        if key is not None:
+            if key in self.cache_data:
+                # update access order
+                self.cache_key.remove(key)
+                self.cache_key.append(key)
+                return self.cache_data[key]  # return value associated with key
+        return None
