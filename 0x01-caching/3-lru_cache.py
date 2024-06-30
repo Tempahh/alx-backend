@@ -21,7 +21,7 @@ class LRUCache(BaseCaching):
         super().__init__()
         self.cache_key = []
 
-    # There's a typo in the code. It should be `self.cache_keys` 
+    # There's a typo in the code. It should be `self.cache_keys`
     # instead of `self.cache_key` for consistency.
     # Here's the corrected version:
 
