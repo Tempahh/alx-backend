@@ -21,7 +21,8 @@ class LRUCache(BaseCaching):
         super().__init__()
         self.cache_key = []
 
-    # There's a typo in the code. It should be `self.cache_keys` instead of `self.cache_key` for consistency.
+    # There's a typo in the code. It should be `self.cache_keys` 
+    # instead of `self.cache_key` for consistency.
     # Here's the corrected version:
 
     def put(self, key, item):
@@ -36,11 +37,11 @@ class LRUCache(BaseCaching):
         if key is None or item is None:
             return
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            oldest_key = self.cache_key.pop(0)  # Corrected from self.cache_key to self.cache_keys
+            oldest_key = self.cache_key.pop(0)
             del self.cache_data[oldest_key]
             print(f"DISCARD: {oldest_key}")
         self.cache_data[key] = item
-        self.cache_key.append(key)  # Corrected from self.cache_key to self.cache_keys
+        self.cache_key.append(key)
 
     def get(self, key):
         """Return value in self.cache_data linked to key.
