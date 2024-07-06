@@ -57,7 +57,7 @@ class Server:
         """
         dataset = self.dataset()  # Get the dataset
 
-        # Validate page
+        # Validate page and page_size
         assert ((isinstance(page, int) and page > 0)
             and (isinstance(page_size, int) and page_size > 0))
 
